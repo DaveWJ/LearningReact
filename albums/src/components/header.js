@@ -11,5 +11,5 @@ const Header = () => {
   return <Text>Albums!</Text>;
 };
 
-// render
+// make available for index file
 export default Header;
