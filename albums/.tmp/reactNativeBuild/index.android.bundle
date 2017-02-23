@@ -69743,9 +69743,11 @@ __d(/* albums/src/components/AlbumDetail.js */function(global, require, module, 
 var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNative=require(42            ); // 42 = react-native
 
+var _Card=require(429     );var _Card2=babelHelpers.interopRequireDefault(_Card); // 429 = ./Card
+
 var AlbumDetail=function AlbumDetail(props){
 return(
-_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_Card2.default,null,
 _react2.default.createElement(_reactNative.Text,null,props.album.title)));
 
 
@@ -69753,6 +69755,40 @@ _react2.default.createElement(_reactNative.Text,null,props.album.title)));
 
 AlbumDetail;
 }, 428, null, "albums/src/components/AlbumDetail.js");
+__d(/* albums/src/components/Card.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+
+
+
+var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+
+var Card=function Card(props){
+return(
+_react2.default.createElement(_reactNative.View,{style:styles.containerStyle},
+props.children));
+
+
+};
+
+var styles={
+containerStyle:{
+borderWidth:1,
+borderRadius:2,
+borderColor:'#ddd',
+borderBottomWidth:0,
+shadowColor:'#000',
+shadowOffset:{width:0,height:2},
+shadowOpacity:0.1,
+shadowRadius:2,
+elevation:4,
+marginLeft:5,
+marginRight:5,
+marginTop:10}};exports.default=
+
+
+
+Card;
+}, 429, null, "albums/src/components/Card.js");
 ;require(194);
 ;require(0);
 //# sourceMappingURL=index.android.map
