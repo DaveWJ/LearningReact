@@ -69746,18 +69746,69 @@ var _reactNative=require(42            ); // 42 = react-native
 var _Card=require(429     );var _Card2=babelHelpers.interopRequireDefault(_Card); // 429 = ./Card
 var _CardSection=require(430            );var _CardSection2=babelHelpers.interopRequireDefault(_CardSection); // 430 = ./CardSection
 
-var AlbumDetail=function AlbumDetail(props){
+var AlbumDetail=function AlbumDetail(_ref){var album=_ref.album;var
+
+title=
+
+
+
+album.title,artist=album.artist,thumbnail_image=album.thumbnail_image,image=album.image;var
+
+thumbnailStyle=
+
+
+
+
+styles.thumbnailStyle,textContainerStyle=styles.textContainerStyle,thumbnailContainerStyle=styles.thumbnailContainerStyle,headerTextStyle=styles.headerTextStyle,imageStyle=styles.imageStyle;
+
 return(
 _react2.default.createElement(_Card2.default,null,
 _react2.default.createElement(_CardSection2.default,null,
-_react2.default.createElement(_reactNative.Text,null,props.album.title)),
+_react2.default.createElement(_reactNative.View,{style:thumbnailContainerStyle},
+_react2.default.createElement(_reactNative.Image,{
+source:{uri:thumbnail_image},
+style:thumbnailStyle})),
+
+
+_react2.default.createElement(_reactNative.View,{style:textContainerStyle},
+_react2.default.createElement(_reactNative.Text,{style:headerTextStyle},title),
+_react2.default.createElement(_reactNative.Text,null,artist))),
+
 
 _react2.default.createElement(_CardSection2.default,null,
-_react2.default.createElement(_reactNative.Text,null,props.album.title))));
+_react2.default.createElement(_reactNative.Image,{
+source:{uri:image},
+style:imageStyle}))));
 
 
 
-};exports.default=
+
+};
+
+var styles={
+textContainerStyle:{
+flexDirection:'column',
+justifyContent:'space-around'},
+
+headerTextStyle:{
+fontSize:18},
+
+thumbnailStyle:{
+height:50,
+width:50},
+
+thumbnailContainerStyle:{
+justifyContent:'center',
+alignItems:'center',
+marginLeft:10,
+marginRight:10},
+
+imageStyle:{
+height:300,
+flex:1,
+width:null}};exports.default=
+
+
 
 AlbumDetail;
 }, 428, null, "albums/src/components/AlbumDetail.js");
