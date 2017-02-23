@@ -1605,9 +1605,15 @@ var _AlbumList=require(402                         );var _AlbumList2=babelHelper
 
 
 var App=function App(){return(
-_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.View,{style:styles.mainViewStyle},
 _react2.default.createElement(_Header2.default,{headerText:'Albums'}),
 _react2.default.createElement(_AlbumList2.default,null)));};
+
+
+
+var styles={
+mainViewStyle:{
+flex:1}};
 
 
 
@@ -68366,8 +68372,9 @@ _react2.default.createElement(_AlbumDetail2.default,{album:album,key:album.title
 
 {
 console.log(this.state);
+
 return(
-_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.ScrollView,null,
 this.renderAlbums()));
 
 
