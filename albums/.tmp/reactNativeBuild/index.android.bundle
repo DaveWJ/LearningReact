@@ -68344,9 +68344,12 @@ __d(/* albums/src/components/AlbumList.js */function(global, require, module, ex
 
 
 
+var _axios=require(403    );var _axios2=babelHelpers.interopRequireDefault(_axios); // 403 = axios
+
 var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNative=require(42            ); // 42 = react-native
-var _axios=require(403    );var _axios2=babelHelpers.interopRequireDefault(_axios);var // 403 = axios
+
+var _AlbumDetail=require(428            );var _AlbumDetail2=babelHelpers.interopRequireDefault(_AlbumDetail);var // 428 = ./AlbumDetail
 
 AlbumList=function(_Component){babelHelpers.inherits(AlbumList,_Component);function AlbumList(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,AlbumList);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=AlbumList.__proto__||Object.getPrototypeOf(AlbumList)).call.apply(_ref,[this].concat(args))),_this),_this.
 state={albums:[]},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(AlbumList,[{key:'componentWillMount',value:function componentWillMount()
@@ -68358,7 +68361,7 @@ then(function(response){return _this2.setState({albums:response.data});});
 
 {
 return this.state.albums.map(function(album){return(
-_react2.default.createElement(_reactNative.Text,{key:album.title},album.title));});
+_react2.default.createElement(_AlbumDetail2.default,{album:album,key:album.title}));});
 }},{key:'render',value:function render()
 
 {
@@ -69733,6 +69736,23 @@ return callback.apply(null,arr);
 };
 };
 }, 427, null, "axios/lib/helpers/spread.js");
+__d(/* albums/src/components/AlbumDetail.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+
+
+
+var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+
+var AlbumDetail=function AlbumDetail(props){
+return(
+_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.Text,null,props.album.title)));
+
+
+};exports.default=
+
+AlbumDetail;
+}, 428, null, "albums/src/components/AlbumDetail.js");
 ;require(194);
 ;require(0);
 //# sourceMappingURL=index.android.map
