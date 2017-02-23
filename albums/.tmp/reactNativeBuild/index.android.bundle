@@ -68343,17 +68343,21 @@ Header;
 __d(/* albums/src/components/AlbumList.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
 
 
+
 var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNative=require(42            ); // 42 = react-native
 var _axios=require(403    );var _axios2=babelHelpers.interopRequireDefault(_axios);var // 403 = axios
 
-AlbumList=function(_Component){babelHelpers.inherits(AlbumList,_Component);function AlbumList(){babelHelpers.classCallCheck(this,AlbumList);return babelHelpers.possibleConstructorReturn(this,(AlbumList.__proto__||Object.getPrototypeOf(AlbumList)).apply(this,arguments));}babelHelpers.createClass(AlbumList,[{key:'componentWillMount',value:function componentWillMount()
-{
+AlbumList=function(_Component){babelHelpers.inherits(AlbumList,_Component);function AlbumList(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,AlbumList);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=AlbumList.__proto__||Object.getPrototypeOf(AlbumList)).call.apply(_ref,[this].concat(args))),_this),_this.
+state={albums:[]},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(AlbumList,[{key:'componentWillMount',value:function componentWillMount()
+
+{var _this2=this;
 _axios2.default.get('https://rallycoding.herokuapp.com/api/music_albums').
-then(function(response){return console.log(response);});
+then(function(response){return _this2.setState({albums:response.data});});
 }},{key:'render',value:function render()
 
 {
+console.log(this.state);
 return(
 _react2.default.createElement(_reactNative.View,null,
 _react2.default.createElement(_reactNative.Text,null,'Hello World!')));
