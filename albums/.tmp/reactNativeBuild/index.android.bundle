@@ -69752,6 +69752,7 @@ var _reactNative=require(42            ); // 42 = react-native
 
 var _Card=require(429     );var _Card2=babelHelpers.interopRequireDefault(_Card); // 429 = ./Card
 var _CardSection=require(430            );var _CardSection2=babelHelpers.interopRequireDefault(_CardSection); // 430 = ./CardSection
+var _Button=require(431       );var _Button2=babelHelpers.interopRequireDefault(_Button); // 431 = ./Button
 
 var AlbumDetail=function AlbumDetail(_ref){var album=_ref.album;var
 
@@ -69782,11 +69783,16 @@ _react2.default.createElement(_reactNative.Text,{style:headerTextStyle},title),
 _react2.default.createElement(_reactNative.Text,null,artist))),
 
 
+
 _react2.default.createElement(_CardSection2.default,null,
 _react2.default.createElement(_reactNative.Image,{
 source:{uri:image},
-style:imageStyle}))));
+style:imageStyle})),
 
+
+
+_react2.default.createElement(_CardSection2.default,null,
+_react2.default.createElement(_Button2.default,{onPress:function onPress(){return console.log(title);}}))));
 
 
 
@@ -69882,6 +69888,48 @@ position:'relative'}};exports.default=
 
 CardSection;
 }, 430, null, "albums/src/components/CardSection.js");
+__d(/* albums/src/components/Button.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+
+
+
+var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+
+var Button=function Button(_ref){var onPress=_ref.onPress;var
+buttonStyle=styles.buttonStyle,textStyle=styles.textStyle;
+
+return(
+_react2.default.createElement(_reactNative.TouchableOpacity,{onPress:onPress,style:buttonStyle},
+_react2.default.createElement(_reactNative.Text,{style:textStyle},'Click Me!')));
+
+
+
+
+};
+
+var styles={
+textStyle:{
+alignSelf:'center',
+color:'#007aff',
+fontSize:16,
+fontWeight:'600',
+paddingTop:10,
+paddingBottom:10},
+
+buttonStyle:{
+flex:1,
+alignSelf:'stretch',
+backgroundColor:'#fff',
+borderRadius:5,
+borderWidth:1,
+borderColor:'#007aff',
+marginLeft:5,
+marginRight:5}};exports.default=
+
+
+
+Button;
+}, 431, null, "albums/src/components/Button.js");
 ;require(194);
 ;require(0);
 //# sourceMappingURL=index.android.map
