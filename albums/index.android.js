@@ -7,11 +7,17 @@ import AlbumList from './src/components/AlbumList';
 
 // Create a Component
 const App = () => (
-    <View>
+    <View style={styles.mainViewStyle}>
         <Header headerText={'Albums'} />
         <AlbumList />
     </View>
 );
+
+const styles = {
+    mainViewStyle: {
+        flex: 1
+    }
+};
 
 // Render it to the device
 AppRegistry.registerComponent('albums', () => App);

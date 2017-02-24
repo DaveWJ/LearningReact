@@ -2,9 +2,12 @@
  * Created by david on 2/19/17.
  */
 
-import React, {Component} from 'react';
-import {View, Text} from 'react-native';
 import axios from 'axios';
+
+import React, {Component} from 'react';
+import {ScrollView} from 'react-native';
+
+import AlbumDetail from './AlbumDetail';
 
 class AlbumList extends Component {
     state = {albums: []};
@@ -14,12 +17,18 @@ class AlbumList extends Component {
             .then(response => this.setState({albums: response.data}));
     }
 
+    renderAlbums() {
+        return this.state.albums.map(album =>
+            <AlbumDetail album={album} key={album.title} />);
+    }
+
     render() {
         console.log(this.state);
+
         return (
-            <View>
-                <Text>Hello World!</Text>
-            </View>
+            <ScrollView>
+                {this.renderAlbums()}
+            </ScrollView>
         );
     }
 }

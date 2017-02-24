@@ -1605,9 +1605,15 @@ var _AlbumList=require(402                         );var _AlbumList2=babelHelper
 
 
 var App=function App(){return(
-_react2.default.createElement(_reactNative.View,null,
+_react2.default.createElement(_reactNative.View,{style:styles.mainViewStyle},
 _react2.default.createElement(_Header2.default,{headerText:'Albums'}),
 _react2.default.createElement(_AlbumList2.default,null)));};
+
+
+
+var styles={
+mainViewStyle:{
+flex:1}};
 
 
 
@@ -68344,9 +68350,12 @@ __d(/* albums/src/components/AlbumList.js */function(global, require, module, ex
 
 
 
+var _axios=require(403    );var _axios2=babelHelpers.interopRequireDefault(_axios); // 403 = axios
+
 var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNative=require(42            ); // 42 = react-native
-var _axios=require(403    );var _axios2=babelHelpers.interopRequireDefault(_axios);var // 403 = axios
+
+var _AlbumDetail=require(428            );var _AlbumDetail2=babelHelpers.interopRequireDefault(_AlbumDetail);var // 428 = ./AlbumDetail
 
 AlbumList=function(_Component){babelHelpers.inherits(AlbumList,_Component);function AlbumList(){var _ref;var _temp,_this,_ret;babelHelpers.classCallCheck(this,AlbumList);for(var _len=arguments.length,args=Array(_len),_key=0;_key<_len;_key++){args[_key]=arguments[_key];}return _ret=(_temp=(_this=babelHelpers.possibleConstructorReturn(this,(_ref=AlbumList.__proto__||Object.getPrototypeOf(AlbumList)).call.apply(_ref,[this].concat(args))),_this),_this.
 state={albums:[]},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}babelHelpers.createClass(AlbumList,[{key:'componentWillMount',value:function componentWillMount()
@@ -68354,13 +68363,19 @@ state={albums:[]},_temp),babelHelpers.possibleConstructorReturn(_this,_ret);}bab
 {var _this2=this;
 _axios2.default.get('https://rallycoding.herokuapp.com/api/music_albums').
 then(function(response){return _this2.setState({albums:response.data});});
+}},{key:'renderAlbums',value:function renderAlbums()
+
+{
+return this.state.albums.map(function(album){return(
+_react2.default.createElement(_AlbumDetail2.default,{album:album,key:album.title}));});
 }},{key:'render',value:function render()
 
 {
 console.log(this.state);
+
 return(
-_react2.default.createElement(_reactNative.View,null,
-_react2.default.createElement(_reactNative.Text,null,'Hello World!')));
+_react2.default.createElement(_reactNative.ScrollView,null,
+this.renderAlbums()));
 
 
 }}]);return AlbumList;}(_react.Component);exports.default=
@@ -69728,6 +69743,194 @@ return callback.apply(null,arr);
 };
 };
 }, 427, null, "axios/lib/helpers/spread.js");
+__d(/* albums/src/components/AlbumDetail.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+
+
+
+var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+
+var _Card=require(429     );var _Card2=babelHelpers.interopRequireDefault(_Card); // 429 = ./Card
+var _CardSection=require(430            );var _CardSection2=babelHelpers.interopRequireDefault(_CardSection); // 430 = ./CardSection
+var _Button=require(431       );var _Button2=babelHelpers.interopRequireDefault(_Button); // 431 = ./Button
+
+var AlbumDetail=function AlbumDetail(_ref){var album=_ref.album;var
+
+title=
+
+
+
+
+album.title,artist=album.artist,thumbnail_image=album.thumbnail_image,image=album.image,url=album.url;var
+
+thumbnailStyle=
+
+
+
+
+styles.thumbnailStyle,textContainerStyle=styles.textContainerStyle,thumbnailContainerStyle=styles.thumbnailContainerStyle,headerTextStyle=styles.headerTextStyle,imageStyle=styles.imageStyle;
+
+return(
+_react2.default.createElement(_Card2.default,null,
+_react2.default.createElement(_CardSection2.default,null,
+_react2.default.createElement(_reactNative.View,{style:thumbnailContainerStyle},
+_react2.default.createElement(_reactNative.Image,{
+source:{uri:thumbnail_image},
+style:thumbnailStyle})),
+
+
+_react2.default.createElement(_reactNative.View,{style:textContainerStyle},
+_react2.default.createElement(_reactNative.Text,{style:headerTextStyle},title),
+_react2.default.createElement(_reactNative.Text,null,artist))),
+
+
+
+_react2.default.createElement(_CardSection2.default,null,
+_react2.default.createElement(_reactNative.Image,{
+source:{uri:image},
+style:imageStyle})),
+
+
+
+_react2.default.createElement(_CardSection2.default,null,
+_react2.default.createElement(_Button2.default,{onPress:function onPress(){return _reactNative.Linking.openURL(url);}},'Buy Now!'))));
+
+
+
+};
+
+var styles={
+textContainerStyle:{
+flexDirection:'column',
+justifyContent:'space-around'},
+
+headerTextStyle:{
+fontSize:18},
+
+thumbnailStyle:{
+height:50,
+width:50},
+
+thumbnailContainerStyle:{
+justifyContent:'center',
+alignItems:'center',
+marginLeft:10,
+marginRight:10},
+
+imageStyle:{
+height:300,
+flex:1,
+width:null}};exports.default=
+
+
+
+AlbumDetail;
+}, 428, null, "albums/src/components/AlbumDetail.js");
+__d(/* albums/src/components/Card.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+
+
+
+var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+
+var Card=function Card(props){
+return(
+_react2.default.createElement(_reactNative.View,{style:styles.containerStyle},
+props.children));
+
+
+};
+
+var styles={
+containerStyle:{
+borderWidth:1,
+borderRadius:2,
+borderColor:'#ddd',
+borderBottomWidth:0,
+shadowColor:'#000',
+shadowOffset:{width:0,height:2},
+shadowOpacity:0.1,
+shadowRadius:2,
+elevation:4,
+marginLeft:5,
+marginRight:5,
+marginTop:10}};exports.default=
+
+
+
+Card;
+}, 429, null, "albums/src/components/Card.js");
+__d(/* albums/src/components/CardSection.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+
+
+
+var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+
+var CardSection=function CardSection(props){
+return(
+_react2.default.createElement(_reactNative.View,{style:styles.containerStyle},
+props.children));
+
+
+};
+
+var styles={
+containerStyle:{
+borderBottomWidth:1,
+padding:5,
+backgroundColor:'#fff',
+justifyContent:'flex-start',
+flexDirection:'row',
+borderColor:'#ddd',
+position:'relative'}};exports.default=
+
+
+
+CardSection;
+}, 430, null, "albums/src/components/CardSection.js");
+__d(/* albums/src/components/Button.js */function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});
+
+
+
+var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
+var _reactNative=require(42            ); // 42 = react-native
+
+var Button=function Button(_ref){var onPress=_ref.onPress,children=_ref.children;var
+buttonStyle=styles.buttonStyle,textStyle=styles.textStyle;
+
+return(
+_react2.default.createElement(_reactNative.TouchableOpacity,{onPress:onPress,style:buttonStyle},
+_react2.default.createElement(_reactNative.Text,{style:textStyle},
+children)));
+
+
+
+};
+
+var styles={
+textStyle:{
+alignSelf:'center',
+color:'#007aff',
+fontSize:16,
+fontWeight:'600',
+paddingTop:10,
+paddingBottom:10},
+
+buttonStyle:{
+flex:1,
+alignSelf:'stretch',
+backgroundColor:'#fff',
+borderRadius:5,
+borderWidth:1,
+borderColor:'#007aff',
+marginLeft:5,
+marginRight:5}};exports.default=
+
+
+
+Button;
+}, 431, null, "albums/src/components/Button.js");
 ;require(194);
 ;require(0);
 //# sourceMappingURL=index.android.map
