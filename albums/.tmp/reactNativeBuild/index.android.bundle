@@ -69760,7 +69760,8 @@ title=
 
 
 
-album.title,artist=album.artist,thumbnail_image=album.thumbnail_image,image=album.image;var
+
+album.title,artist=album.artist,thumbnail_image=album.thumbnail_image,image=album.image,url=album.url;var
 
 thumbnailStyle=
 
@@ -69792,7 +69793,7 @@ style:imageStyle})),
 
 
 _react2.default.createElement(_CardSection2.default,null,
-_react2.default.createElement(_Button2.default,{onPress:function onPress(){return console.log(title);}}))));
+_react2.default.createElement(_Button2.default,{onPress:function onPress(){return _reactNative.Linking.openURL(url);}},'Buy Now!'))));
 
 
 
@@ -69895,13 +69896,13 @@ __d(/* albums/src/components/Button.js */function(global, require, module, expor
 var _react=require(12     );var _react2=babelHelpers.interopRequireDefault(_react); // 12 = react
 var _reactNative=require(42            ); // 42 = react-native
 
-var Button=function Button(_ref){var onPress=_ref.onPress;var
+var Button=function Button(_ref){var onPress=_ref.onPress,children=_ref.children;var
 buttonStyle=styles.buttonStyle,textStyle=styles.textStyle;
 
 return(
 _react2.default.createElement(_reactNative.TouchableOpacity,{onPress:onPress,style:buttonStyle},
-_react2.default.createElement(_reactNative.Text,{style:textStyle},'Click Me!')));
-
+_react2.default.createElement(_reactNative.Text,{style:textStyle},
+children)));
 
 
 
